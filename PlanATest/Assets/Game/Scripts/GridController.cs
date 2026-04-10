@@ -63,6 +63,7 @@ namespace PlanATest.core
                     return;
                 result.Add(cell.Id);
                 cell.SetCellType(CellType.Empty);
+                return;
                 CheckCell(new Vector2Int(cellId.x + 1, cellId.y));
                 CheckCell(new Vector2Int(cellId.x - 1, cellId.y));
                 CheckCell(new Vector2Int(cellId.x, cellId.y + 1));
