@@ -1,0 +1,20 @@
+version: 2
+tpsheetFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Game/Atlas/Atlas_01.tpsheet
+- Assets/Games/FazendaDaSorte/Atlas/Atlas_01.tpsheet
+- Assets/Games/FazendaDaSorte/Atlas/BottonBar.tpsheet
+- Assets/Games/FazendaDaSorte/Atlas/Resources/Atlas_Symbols_01.tpsheet
+textureFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Game/Atlas/Atlas_01.png
+- Assets/Games/FazendaDaSorte/Atlas/Atlas_01.png
+- Assets/Games/FazendaDaSorte/Atlas/BottonBar.png
+- Assets/Games/FazendaDaSorte/Atlas/Resources/Atlas_Symbols_01.png
+normalmapFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
+- 
+enableDebugOutput: 0
