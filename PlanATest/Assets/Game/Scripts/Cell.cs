@@ -23,12 +23,20 @@ namespace PlanATest.core
 
         public void SetCellType(CellType type)
         {
+            if (type == CellType.Empty)
+            {
+                button.gameObject.SetActive(false);
+                return;
+            }
+
+            button.gameObject.SetActive(true);
             this.Type = type;
             button.Image.sprite = cellSprites.Find(x => x.Type == type).CeelSprite;
         }
 
         public void RegisterTouchEvent(Action<Vector2Int> touched)
         {
+            onTouched = touched;
             button.OnClick = OnCellTouched;
         }
 

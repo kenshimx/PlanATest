@@ -26,7 +26,10 @@ namespace PlanATest.core
 
             //initialize grid
             if (gridController != null)
+            {
                 gridController.BuildGrid();
+                gridController.OnPlayDone = PlayMade;
+            }
 
             if (gameMakeMove != null)
                 gameMakeMove.RegisterEvent(FakePlay);
@@ -37,14 +40,20 @@ namespace PlanATest.core
             ReStartGame();
         }
 
+        protected void PlayMade(int score)
+        {
+            gameScore?.SetScore(gameScore.Score + score);
+            gameMoves?.SetMovesCount(gameMoves.movesCount - 1);
+            if (gameMoves.movesCount <= 0)
+                gameOverPopup.Show();
+        }
+
         protected void FakePlay()
         {
             gameScore?.SetScore(gameScore.Score + 10);
             gameMoves?.SetMovesCount(gameMoves.movesCount - 1);
             if (gameMoves.movesCount <= 0)
-            {
                 gameOverPopup.Show();
-            }
         }
         
 
