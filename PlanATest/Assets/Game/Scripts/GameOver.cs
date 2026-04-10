@@ -11,6 +11,8 @@ namespace PlanATest.core
         [SerializeField]
         protected Button buttonRetry;
 
+        protected Action retryAction;
+
         private void Awake()
         {
             Hide();
@@ -18,11 +20,19 @@ namespace PlanATest.core
 
         public void RegisterRetryEvent(Action retry)
         {
-            buttonRetry.onClick.AddListener(() => retry());
+            retryAction = retry;
+            buttonRetry.onClick.AddListener(OnRetryTouched);
+        }
+
+        protected void OnRetryTouched()
+        {
+            Hide();
+            retryAction?.Invoke();
         }
 
         public void RemoveRetryEvent()
         {
+            retryAction = null;
             buttonRetry.onClick.RemoveAllListeners();
         }
 

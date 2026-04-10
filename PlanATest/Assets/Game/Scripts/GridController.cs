@@ -5,9 +5,11 @@ namespace PlanATest.core
     {
         [SerializeField]
         protected Cell cellPrefab;
+
+        protected int[,] gridData;
         public void BuildGrid()
         {
-
+            gridData = new int[5, 5];
         }
     }
 }
