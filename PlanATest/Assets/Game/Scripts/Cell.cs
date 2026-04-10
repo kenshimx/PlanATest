@@ -1,5 +1,6 @@
 using PlanATest.utils;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace PlanATest.core
@@ -9,7 +10,9 @@ namespace PlanATest.core
         public CellType Type { get; protected set; }
         public Vector2Int Id { get; protected set; }
         [SerializeField] 
-        private SimpleImageTouch button;
+        protected SimpleImageTouch button;
+        [SerializeField]
+        protected List<CellSpriteData> cellSprites;
 
         protected Action<Vector2Int> onTouched;
 
@@ -21,6 +24,7 @@ namespace PlanATest.core
         public void SetCellType(CellType type)
         {
             this.Type = type;
+            button.Image.sprite = cellSprites.Find(x => x.Type == type).CeelSprite;
         }
 
         public void RegisterTouchEvent(Action<Vector2Int> touched)
@@ -39,12 +43,21 @@ namespace PlanATest.core
         }
     }
 
+    [Serializable]
+    public struct CellSpriteData
+    {
+        public CellType Type;
+        public Sprite CeelSprite;
+    }
+
+    [Serializable]
     public enum CellType
     {
         Empty,
-        Red,
         Green,
-        Blue,
-        Yellow
+        Purple,
+        Yellow,
+        Brown,
+        Pink
     }
 }

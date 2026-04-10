@@ -52,6 +52,7 @@ namespace PlanATest.core
         {
             gameScore.SetScore(0);
             gameMoves.SetMovesCount(5);
+            gridController.ReStartGrid();
         }
     }
 }
