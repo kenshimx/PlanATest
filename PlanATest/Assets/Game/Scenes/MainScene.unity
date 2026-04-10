@@ -164,6 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 36995262}
+  - component: {fileID: 36995263}
   m_Layer: 0
   m_Name: GameMoves
   m_TagString: Untagged
@@ -187,6 +188,19 @@ Transform:
   - {fileID: 835844413}
   m_Father: {fileID: 186867290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &36995263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36995261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5618bfa740aee3b42a491ebca4031351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanATest.core.GameMoves
+  text: {fileID: 1645881732}
 --- !u!1 &37636212
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 37636213}
+  - component: {fileID: 37636214}
   m_Layer: 0
   m_Name: GameScore
   m_TagString: Untagged
@@ -219,6 +234,19 @@ Transform:
   - {fileID: 667327081}
   m_Father: {fileID: 186867290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &37636214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37636212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dafb974caf7a08e4c9060486503aa874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanATest.core.GameScore
+  text: {fileID: 851633153}
 --- !u!1 &186867289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,8 +1250,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78114f7731a44b45aabc13250d914ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlanATest.core.GameController
-  cellPrefab: {fileID: 0}
+  gridController: {fileID: 1929535747}
   gameOverPopup: {fileID: 1853200853}
+  gameScore: {fileID: 37636214}
+  gameMoves: {fileID: 36995263}
 --- !u!1 &1576112876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,6 +2036,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1929535746}
+  - component: {fileID: 1929535747}
   m_Layer: 0
   m_Name: GameGrid
   m_TagString: Untagged
@@ -2029,6 +2060,19 @@ Transform:
   - {fileID: 1712018684}
   m_Father: {fileID: 186867290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1929535747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929535745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a289f1b8d320b4ca5c51ec191754ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanATest.core.GridController
+  cellPrefab: {fileID: 0}
 --- !u!1 &1970165609
 GameObject:
   m_ObjectHideFlags: 0

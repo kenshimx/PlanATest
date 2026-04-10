@@ -1,5 +1,4 @@
-using PlanATest.cell;
-using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace PlanATest.core
@@ -7,9 +6,13 @@ namespace PlanATest.core
     public class GameController : MonoBehaviour
     {
         [SerializeField]
-        protected Cell cellPrefab;
+        protected GridController gridController;
         [SerializeField]
         protected GameOver gameOverPopup;
+        [SerializeField]
+        protected GameScore gameScore;
+        [SerializeField]
+        protected GameMoves gameMoves;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         protected void Start()
@@ -17,16 +20,21 @@ namespace PlanATest.core
 
             if (gameOverPopup == null) 
                 gameOverPopup.RegisterRetryEvent(ReStartGame);
+
+            //initialize grid
+            if (gridController == null)
+                gridController.BuildGrid();
+
+
+            ReStartGame();
         }
 
-        private void BuildGrid()
-        {
-            
-        }
+        
 
         private void ReStartGame()
         {
-           
+            gameScore.SetScore(0);
+            gameMoves.SetMovesCount(5);
         }
     }
 }

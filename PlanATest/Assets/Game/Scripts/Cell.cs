@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PlanATest.cell
+namespace PlanATest.core
 {
     public class Cell : MonoBehaviour
     {
