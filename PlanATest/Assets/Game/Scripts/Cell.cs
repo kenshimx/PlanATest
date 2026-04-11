@@ -7,6 +7,7 @@ namespace PlanATest.core
 {
     public class Cell : MonoBehaviour
     {
+        public bool Visited;
         public CellType Type { get; protected set; }
         public Vector2Int Id { get; protected set; }
         [SerializeField] 
@@ -23,14 +24,12 @@ namespace PlanATest.core
 
         public void SetCellType(CellType type)
         {
-            if (type == CellType.Empty)
-            {
-                button.gameObject.SetActive(false);
-                return;
-            }
-
-            button.gameObject.SetActive(true);
+            button.gameObject.SetActive(type != CellType.Empty);
             this.Type = type;
+            
+            if (type == CellType.Empty)
+                return;
+            
             button.Image.sprite = cellSprites.Find(x => x.Type == type).CeelSprite;
         }
 

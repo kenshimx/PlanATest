@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 
 namespace PlanATest.core
@@ -17,13 +17,8 @@ namespace PlanATest.core
         [SerializeField]
         protected MakeMove gameMakeMove;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         protected void Start()
         {
-
-            if (gameOverPopup != null) 
-                gameOverPopup.RegisterRetryEvent(ReStartGame);
-
             //initialize grid
             if (gridController != null)
             {
@@ -31,6 +26,7 @@ namespace PlanATest.core
                 gridController.OnPlayDone = PlayMade;
             }
 
+            //for test in task 2
             if (gameMakeMove != null)
                 gameMakeMove.RegisterEvent(FakePlay);
 
@@ -44,8 +40,19 @@ namespace PlanATest.core
         {
             gameScore?.SetScore(gameScore.Score + score);
             gameMoves?.SetMovesCount(gameMoves.movesCount - 1);
+
+            StartCoroutine(WaitNext());
+        }
+
+        IEnumerator WaitNext()
+        {
+            yield return new WaitForSeconds(1f);
+
+            //on timer restore for next move or end the game if no more moves
             if (gameMoves.movesCount <= 0)
                 gameOverPopup.Show();
+            else
+                gridController.RepositionGridCells();
         }
 
         protected void FakePlay()
